@@ -1,1 +1,26 @@
+name: Test Homebrew Installation
 
+on:
+  workflow_dispatch: 
+  push:
+    branches: [ main ]
+
+jobs:
+  test-brew:
+    runs-on: macos-latest 
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install app via Brew
+        run: |
+          brew tap blueisharch/tap
+          
+          brew install todo-cli
+
+      - name: Verify Installation
+        run: |
+          todo --version
+          
+          todo list || true
