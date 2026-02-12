@@ -15,7 +15,7 @@ jobs:
 
       - name: Install app via Brew
         run: |
-          brew tap blueisharch/tap
+          brew tap gourangadassamrat/tap
           
           brew install todo-cli
 
